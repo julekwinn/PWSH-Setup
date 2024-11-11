@@ -172,6 +172,36 @@ Invoke-Expression (& {
     (zoxide init --hook $hook powershell | Out-String)
 })
 
+
+# WSL Here - funkcja do otwierania WSL w aktualnym katalogu
+function Start-WSLHere {
+    param (
+        [Parameter(ValueFromRemainingArguments=$true)]
+        [string[]]$Command
+    )
+    # Pobierz aktualną ścieżkę
+    $currentPath = (Get-Location).Path
+    # Zamień backslashe na forwardslashe
+    $wslPath = $currentPath -replace "\\", "/"
+    # Zamień literę dysku na ścieżkę WSL
+    if ($wslPath -match "^([A-Za-z]):(.*)") {
+        $driveLetter = $matches[1].ToLower()
+        $remainingPath = $matches[2]
+        $wslPath = "/mnt/$driveLetter$remainingPath"
+    }
+    if ($Command) {
+        # Jeśli podano komendę, wykonaj ją w WSL
+        $commandString = $Command -join " "
+        wsl.exe --cd "$wslPath" $commandString
+    }
+    else {
+        # Jeśli nie podano komendy, uruchom interaktywną sesję WSL
+        wsl.exe --cd "$wslPath"
+    }
+}
+# Dodaj alias dla wygody
+Set-Alias -Name wslhere -Value Start-WSLHere
+
 # Aliasy
 Set-Alias -Name vim -Value micro
 Set-Alias -Name lg -Value lazygit
@@ -289,3 +319,7 @@ Aby zmienić motyw Oh My Posh:
    ```powershell
    scoop list
    ```
+
+6. **Używanie WSL w aktualnym katalogu**
+   - Użyj komendy `wslhere` aby otworzyć WSL w bieżącym katalogu
+   - Możesz również przekazać komendę do wykonania: `wslhere ls -la`
