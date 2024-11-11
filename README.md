@@ -1,5 +1,10 @@
 # Kompletny przewodnik po narzędziach terminalowych dla Windows
 
+
+![PWSH Setup](https://github.com/user-attachments/assets/1407b0a7-c369-419e-9f9e-29e6adee4cb3)
+
+
+
 ## Spis treści
 - [Przygotowanie środowiska](#przygotowanie-środowiska)
 - [Instalacja czcionek](#instalacja-czcionek)
