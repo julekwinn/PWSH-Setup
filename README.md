@@ -89,6 +89,7 @@ scoop install `
     quicklook `     # Szybki podgląd
     mupdf `         # Przeglądarka PDF
     vale `          # Linter tekstu
+    nilesoft-shell `          
     flow-launcher ` # Launcher
     everything      # Wyszukiwarka plików
 ```
