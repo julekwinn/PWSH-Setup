@@ -77,7 +77,6 @@ scoop install `
     mc `            # Midnight Commander
     lf `            # Menadżer plików
     jc `            # Konwerter do JSON
-    broot `         # Nawigacja po katalogach
     lazygit `       # Git UI
     lazydocker `    # Docker UI
     oh-my-posh `    # Prompt
@@ -85,7 +84,6 @@ scoop install `
     zoxide `        # Inteligentna nawigacja
     bottom `        # Monitor systemu
     ripgrep `       # Wyszukiwanie tekstu
-    fd `            # Wyszukiwanie plików
     glow `          # Przeglądarka Markdown
     marktext `      # Edytor Markdown
     quicklook `     # Szybki podgląd
